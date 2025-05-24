@@ -3,6 +3,7 @@ using UnityEngine;
 public class ItemBox : MonoBehaviour
 {
     [SerializeField] Slot[] slots;
+    Slot selectedSlot = null;
 
     // 어디서든 실행 가능하도록
     public static ItemBox instance;
@@ -11,6 +12,7 @@ public class ItemBox : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            slots = GetComponentsInChildren<Slot>();
         }
     }
 
@@ -25,5 +27,23 @@ public class ItemBox : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void OnSelectSlot(int position)
+    {
+        foreach(Slot slot in slots)
+        {
+            slot.HideBGPanel();
+        }
+
+        if (slots[position].OnSelect())
+        {
+            selectedSlot = slots[position];
+        }
+        else
+        {
+            selectedSlot = null;
+        }
+        
     }
 }

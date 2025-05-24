@@ -5,10 +5,11 @@ public class Slot : MonoBehaviour
 {
 
     Item item;
-    Image image;
-    private void Awake()
+    [SerializeField] Image image;
+    [SerializeField] GameObject backgroundPanel;
+    private void Start()
     {
-        image = GetComponent<Image>();
+        backgroundPanel.SetActive(false);
     }
     public bool IsEmpty()
     {
@@ -30,4 +31,20 @@ public class Slot : MonoBehaviour
         // 아이템을 얻으면 슬롯에 이미지 표시
         image.sprite = item.sprite;
     }
+
+    public void HideBGPanel()
+    {
+        backgroundPanel.SetActive(false);
+    }
+
+    public bool OnSelect()
+    {
+        if (item == null)
+        {
+            return false;
+        }
+        backgroundPanel.SetActive(true);
+        return true;
+    }
+   
 }

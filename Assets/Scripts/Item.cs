@@ -11,4 +11,10 @@ public class Item
 
     public Type type;       // 아이템 종류
     public Sprite sprite;   // 슬롯에 표시되는 이미지
+
+    public Item(Type type, Sprite sprite)
+    {
+        this.type = type;
+        this.sprite = sprite;
+    }
 }
