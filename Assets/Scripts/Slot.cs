@@ -26,10 +26,21 @@ public class Slot : MonoBehaviour
         UpdateImage(item);
     }
 
+    public Item GetItem()
+    {
+        return item;
+    }
+
     void UpdateImage(Item item)
     {
-        // 아이템을 얻으면 슬롯에 이미지 표시
-        image.sprite = item.sprite;
+        if (item == null)
+        {
+            image.sprite = null;
+        }
+        else
+        {
+            image.sprite = item.sprite;
+        }
     }
 
     public void HideBGPanel()
