@@ -63,7 +63,15 @@ public class ItemBox : MonoBehaviour
 
             return true;
         }
-
         return false;
+    }
+
+    public Item GetSelectedItem()
+    {
+        if (selectedSlot == null)
+        {
+            return null;
+        }
+        return selectedSlot.GetItem();
     }
 }
