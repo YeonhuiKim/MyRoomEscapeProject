@@ -9,6 +9,10 @@ public class ZoomPanel : MonoBehaviour
     [SerializeField] Transform objParent;
     GameObject zoomObj;
 
+    private void Start()
+    {
+        panel.SetActive(false);
+    }
     public void ShowPanel()
     {
         Item item = ItemBox.instance.GetSelectedItem();
